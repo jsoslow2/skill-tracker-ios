@@ -33,7 +33,7 @@ struct SkillService {
         ref.updateChildValues(dict)
     }
     
-    static func levelUpSkill(uid: String, skillName: String, currentLevel: Double, growthRate: Double) {
+    static func levelUpSkill(uid: String, skillName: String, currentLevel: Double, growthRate: Double, completion: @escaping(Double) -> Void) {
         let ref = Database.database().reference().child("Users").child(uid).child("Skills").child(skillName)
         let timestamp = NSDate().timeIntervalSince1970
         let timestampString = String(timestamp)
@@ -43,6 +43,8 @@ struct SkillService {
         ref.child("currentLevel").setValue(newLevel)
         
         ref.child("levelUps").child(timestampFinal!).setValue(newLevel)
+        
+        completion(newLevel)
     }
     
     static func getAllSkills(uid: String, completion: @escaping([Skill]) -> Void) {

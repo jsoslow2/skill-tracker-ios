@@ -16,4 +16,5 @@ struct CurrentUserData {
     static var profilePic : String?
     static var uid : String?
     
+    static var allSkills : [Skill]?
 }

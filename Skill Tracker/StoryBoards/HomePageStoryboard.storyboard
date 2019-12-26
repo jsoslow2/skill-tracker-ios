@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5tz-vS-Ptf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -7,6 +7,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="x8O-1r-ttI">
+            <objects>
+                <navigationController id="5tz-vS-Ptf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YKE-9j-ZZq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vy6-Ed-Qyy" kind="relationship" relationship="rootViewController" id="50C-g9-YHj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="82T-Gd-9e1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1920" y="106"/>
+        </scene>
         <!--Home Page View Controller-->
         <scene sceneID="A5u-4c-Fw3">
             <objects>
@@ -21,14 +37,6 @@
                                 <state key="normal" title="Level Up pooping"/>
                                 <connections>
                                     <action selector="buttonAction:" destination="vy6-Ed-Qyy" eventType="touchUpInside" id="TPQ-xU-UuW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSv-sR-Z9h">
-                                <rect key="frame" x="84" y="325" width="108" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create new skill"/>
-                                <connections>
-                                    <action selector="newSkill:" destination="vy6-Ed-Qyy" eventType="touchUpInside" id="eBB-CW-ivq"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kp1-Ku-P7r">
@@ -82,18 +90,54 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSv-sR-Z9h">
+                                <rect key="frame" x="286" y="102" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create new skill"/>
+                                <connections>
+                                    <action selector="newSkill:" destination="vy6-Ed-Qyy" eventType="touchUpInside" id="eBB-CW-ivq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="D1O-Nm-oVc"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ZE0-IG-ghn"/>
                     <connections>
                         <outlet property="tableView" destination="kp1-Ku-P7r" id="vTR-he-9gn"/>
                         <outlet property="theButton" destination="3tM-9g-Ld0" id="6PB-iK-iZK"/>
+                        <segue destination="C1Q-dQ-Cz9" kind="show" identifier="goToCreateSkill" id="t6e-gs-RF4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWO-8z-KAF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76.811594202898561" y="105.80357142857143"/>
+            <point key="canvasLocation" x="2807.2463768115945" y="105.80357142857143"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ymx-op-7l1">
+            <objects>
+                <viewController id="C1Q-dQ-Cz9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3WQ-9e-mRM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Bq6-qs-Qsg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wiL-aV-jwe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W7r-TK-1qL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3552" y="-314"/>
+        </scene>
+        <!--CreateNewSkillViewController-->
+        <scene sceneID="nVq-It-zBv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateNewSkillStoryboard" referencedIdentifier="CreateNewSkillViewController" id="D1f-jF-3qr" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RTx-YP-6Vv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pQC-YQ-rd9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3552.898550724638" y="68.973214285714278"/>
         </scene>
     </scenes>
 </document>

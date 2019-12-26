@@ -44,8 +44,7 @@ class HomePageViewController: UIViewController {
     }
     
     @IBAction func newSkill(_ sender: Any) {
-        SkillService.createSkill(uid: CurrentUserData.uid ?? "", skillName: "Fitness", currentLevel: 30, growthRate: 0.01)
-        print("new skill incoming")
+        performSegue(withIdentifier: "goToCreateSkill", sender: self)
     }
 }
 

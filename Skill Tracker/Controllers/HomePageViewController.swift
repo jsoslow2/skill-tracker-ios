@@ -43,9 +43,7 @@ class HomePageViewController: UIViewController {
         print("level up")
     }
     
-    @IBAction func newSkill(_ sender: Any) {
-        performSegue(withIdentifier: "goToCreateSkill", sender: self)
-    }
+    @IBAction func newSkill(_ sender: Any) {    }
 }
 
 extension HomePageViewController: UITableViewDataSource, skillCellDelegate {
@@ -78,6 +76,16 @@ extension HomePageViewController: UITableViewDataSource, skillCellDelegate {
         cell.level.text = String(skill.currentLevel)
     
         return cell
+    }
+    
+    func goToSkill(on cell: skillCell) {
+        let mainStoryboard = UIStoryboard(name: "SkillStoryBoard", bundle: nil)
+        
+        guard let destinationVC = mainStoryboard.instantiateViewController(withIdentifier: "SkillViewController") as? SkillViewController else {
+            print("no VC found"); return}
+
+        
+        navigationController?.pushViewController(destinationVC, animated: true)
     }
     
     func levelUp(on cell: skillCell) {

@@ -40,7 +40,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func goToHome () {
         let mainStoryboard = UIStoryboard(name: "HomePageStoryboard", bundle: nil)
-        let vc = (mainStoryboard.instantiateViewController(identifier: "HomePageViewController") as? HomePageViewController)!
+        let vc = (mainStoryboard.instantiateViewController(identifier: "homeNavController"))
         vc.modalPresentationStyle = .fullScreen
         
         self.present(vc, animated: true, completion: nil)

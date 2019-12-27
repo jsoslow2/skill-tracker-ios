@@ -23,6 +23,8 @@
 		29BD9F2823B4191C00107E90 /* skillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD9F2723B4191C00107E90 /* skillCell.swift */; };
 		29BD9F2A23B42D8E00107E90 /* CreateNewSkillStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BD9F2923B42D8E00107E90 /* CreateNewSkillStoryboard.storyboard */; };
 		29BD9F2C23B42DB800107E90 /* CreateNewSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD9F2B23B42DB800107E90 /* CreateNewSkillViewController.swift */; };
+		29BD9F3223B6BF0100107E90 /* SkillStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BD9F3123B6BF0100107E90 /* SkillStoryBoard.storyboard */; };
+		29BD9F3423B6BF3200107E90 /* SkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD9F3323B6BF3200107E90 /* SkillViewController.swift */; };
 		3B95B7E327972E1BBA1D5D5D /* Pods_Skill_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCEEFF920659D4A03B5CA6 /* Pods_Skill_Tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		29BD9F2723B4191C00107E90 /* skillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skillCell.swift; sourceTree = "<group>"; };
 		29BD9F2923B42D8E00107E90 /* CreateNewSkillStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateNewSkillStoryboard.storyboard; sourceTree = "<group>"; };
 		29BD9F2B23B42DB800107E90 /* CreateNewSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewSkillViewController.swift; sourceTree = "<group>"; };
+		29BD9F3123B6BF0100107E90 /* SkillStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SkillStoryBoard.storyboard; sourceTree = "<group>"; };
+		29BD9F3323B6BF3200107E90 /* SkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillViewController.swift; sourceTree = "<group>"; };
 		3377D6EEB7D8FDE14D0B690F /* Pods-Skill Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skill Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Skill Tracker/Pods-Skill Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		67CCEEFF920659D4A03B5CA6 /* Pods_Skill_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skill_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC96694CC0D4D7B4635A50D /* Pods-Skill Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skill Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Skill Tracker/Pods-Skill Tracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				2916B4E7239443F200C75480 /* ViewController.swift */,
 				2916B508239484A200C75480 /* HomePageViewController.swift */,
 				29BD9F2B23B42DB800107E90 /* CreateNewSkillViewController.swift */,
+				29BD9F3323B6BF3200107E90 /* SkillViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				2916B4E9239443F200C75480 /* Main.storyboard */,
 				2916B5062394842200C75480 /* HomePageStoryboard.storyboard */,
 				29BD9F2923B42D8E00107E90 /* CreateNewSkillStoryboard.storyboard */,
+				29BD9F3123B6BF0100107E90 /* SkillStoryBoard.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 				29BD9F2A23B42D8E00107E90 /* CreateNewSkillStoryboard.storyboard in Resources */,
 				2916B4F82394443900C75480 /* GoogleService-Info.plist in Resources */,
 				2916B4EB239443F200C75480 /* Main.storyboard in Resources */,
+				29BD9F3223B6BF0100107E90 /* SkillStoryBoard.storyboard in Resources */,
 				2916B5072394842200C75480 /* HomePageStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29230463239605E6000BA663 /* SkillService.swift in Sources */,
+				29BD9F3423B6BF3200107E90 /* SkillViewController.swift in Sources */,
 				2916B509239484A200C75480 /* HomePageViewController.swift in Sources */,
 				29BD9F2823B4191C00107E90 /* skillCell.swift in Sources */,
 				2923045F23949866000BA663 /* UserService.swift in Sources */,

@@ -11,6 +11,7 @@ import UIKit
 
 protocol skillCellDelegate: class {
     func levelUp(on cell: skillCell)
+    func goToSkill(on cell: skillCell)
 }
 
 class skillCell : UITableViewCell {
@@ -27,6 +28,8 @@ class skillCell : UITableViewCell {
     var delegate: skillCellDelegate?
     
     override func awakeFromNib() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(skillCell.goToSkill(sender:)))
+        addGestureRecognizer(tapGesture)
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -34,5 +37,9 @@ class skillCell : UITableViewCell {
     
     @IBAction func levelUp(_ sender: Any) {
         delegate?.levelUp(on: self)
+    }
+    
+    @objc func goToSkill (sender: UITapGestureRecognizer) {
+        delegate?.goToSkill(on: self)
     }
 }

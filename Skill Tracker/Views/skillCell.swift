@@ -21,6 +21,7 @@ class skillCell : UITableViewCell {
     var indexNumber : Int?
     
     
+    @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var level: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var levelUpButton: UIButton!
@@ -28,6 +29,12 @@ class skillCell : UITableViewCell {
     var delegate: skillCellDelegate?
     
     override func awakeFromNib() {
+        Designs.formatLabel(label: title, size: 20)
+        Designs.formatLabel(label: level, size: 15)
+        
+        progressView.transform = progressView.transform.scaledBy(x: 1, y: 4)
+
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(skillCell.goToSkill(sender:)))
         addGestureRecognizer(tapGesture)
     }
@@ -41,5 +48,16 @@ class skillCell : UITableViewCell {
     
     @objc func goToSkill (sender: UITapGestureRecognizer) {
         delegate?.goToSkill(on: self)
+    }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        //set the values for top,left,bottom,right margins
+                let margins = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        contentView.frame = contentView.frame.inset(by: margins)
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
+        contentView.layer.backgroundColor = Designs.lightBlue.cgColor
     }
 }

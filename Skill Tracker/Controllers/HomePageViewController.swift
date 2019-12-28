@@ -101,15 +101,17 @@ extension HomePageViewController: UITableViewDataSource, skillCellDelegate {
         guard let skills = skills else {return cell}
         
         let skill = skills[indexPath.row]
-        
+
         cell.indexNumber = indexPath.row
         
         cell.skillName = skill.skillName
         cell.growthRate = skill.growthRate
         cell.currentLevel = skill.currentLevel
         
+
         cell.title.text = skill.skillName
-        cell.level.text = String(skill.currentLevel)
+        cell.level.text = String(Int(skill.currentLevel)) + "/100"
+        cell.progressView.progress = Float(cell.currentLevel! / 100.0)
     
         return cell
     }

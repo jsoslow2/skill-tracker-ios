@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import Charts
 
 struct CurrentUserData {
     static var email : String?
@@ -19,8 +20,9 @@ struct CurrentUserData {
     
     static var allSkills : [Skill]?
     static var allLevelUps : [String : [(key: String, value: Any)]] = [:]
+    static var allLevelUpsCharts : [String : [ChartDataEntry]] = [:]
     
-    static func getLevelUps (skills: [Skill], completion: @escaping ([String : [(key: String, value: Any)]]) -> Void) {
+    static func getLevelUps (skills: [Skill], completion: @escaping ([String : [ChartDataEntry]]) -> Void) {
         
         for skill in skills {
             let skillName = skill.skillName
@@ -39,12 +41,19 @@ struct CurrentUserData {
                 if self.miniDate! > unixTimestamp {
                     self.miniDate = unixTimestamp
                 }
+                
+                var dataCleaned : [ChartDataEntry] = []
+                for i in 0..<cleaned.count {
+                    let dataEntry = ChartDataEntry(x: Double(cleaned[i].key)! - self.miniDate!, y: (cleaned[i].value as AnyObject).doubleValue)
+                  dataCleaned.append(dataEntry)
+                }
+                
+                allLevelUpsCharts[skillName] = dataCleaned
             }
-            print(cleaned)
-            print(skillName)
+
             allLevelUps[skillName] = cleaned
         }
         
-        completion(allLevelUps ?? [:])
+        completion(allLevelUpsCharts)
     }
 }

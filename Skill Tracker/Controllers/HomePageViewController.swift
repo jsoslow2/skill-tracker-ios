@@ -8,11 +8,15 @@
 
 import Foundation
 import UIKit
+import Charts
 
 class HomePageViewController: UIViewController {
     var skills : [Skill]?
+    var dataRaw : [String: [ChartDataEntry]] = [:]
+    var lineChartData = LineChartData()
     
     @IBOutlet weak var theButton: UIButton!
+    @IBOutlet weak var lineChartView: LineChartView!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,7 +35,12 @@ class HomePageViewController: UIViewController {
             
             
             CurrentUserData.getLevelUps(skills: allSkills) { (levelUps) in
-                dump(levelUps)
+                for skill in levelUps {
+                    let lineChartDataSet = LineChartDataSet(values: skill.value, label: skill.key)
+                    lineChartDataSet.drawCirclesEnabled = false
+                    self.lineChartData.addDataSet(lineChartDataSet)
+                }
+                LineChartCreator.createChart(lineChartView: self.lineChartView, data: self.lineChartData, miniDate: CurrentUserData.miniDate!)
             }
         }
         
@@ -51,6 +60,7 @@ class HomePageViewController: UIViewController {
     }
     
     @IBAction func newSkill(_ sender: Any) {    }
+    
 }
 
 extension HomePageViewController: UITableViewDataSource, skillCellDelegate {

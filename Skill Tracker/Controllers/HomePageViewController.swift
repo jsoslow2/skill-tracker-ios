@@ -83,6 +83,8 @@ extension HomePageViewController: UITableViewDataSource, skillCellDelegate {
         
         guard let destinationVC = mainStoryboard.instantiateViewController(withIdentifier: "SkillViewController") as? SkillViewController else {
             print("no VC found"); return}
+        
+        destinationVC.skillNameTransfered = cell.skillName
 
         
         navigationController?.pushViewController(destinationVC, animated: true)

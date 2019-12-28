@@ -22,11 +22,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8QK-8H-NHa" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="168" width="414" height="262"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="EJO-RW-iJd"/>
                     </view>
                     <connections>
+                        <outlet property="lineChartView" destination="8QK-8H-NHa" id="2Va-Hn-vBK"/>
                         <outlet property="skill" destination="pEW-Oe-URJ" id="uz5-9d-2UG"/>
                     </connections>
                 </viewController>

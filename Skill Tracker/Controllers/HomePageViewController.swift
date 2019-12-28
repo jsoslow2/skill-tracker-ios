@@ -85,7 +85,7 @@ extension HomePageViewController: UITableViewDataSource, skillCellDelegate {
             print("no VC found"); return}
         
         destinationVC.skillNameTransfered = cell.skillName
-
+        destinationVC.indexTransfered = cell.indexNumber 
         
         navigationController?.pushViewController(destinationVC, animated: true)
     }

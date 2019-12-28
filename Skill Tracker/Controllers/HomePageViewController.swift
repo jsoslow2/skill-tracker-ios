@@ -28,7 +28,14 @@ class HomePageViewController: UIViewController {
             self.skills = allSkills
             CurrentUserData.allSkills = allSkills
             self.tableView.reloadData()
+            
+            
+            CurrentUserData.getLevelUps(skills: allSkills) { (levelUps) in
+                dump(levelUps)
+            }
         }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

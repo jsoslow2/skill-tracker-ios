@@ -28,8 +28,7 @@ class SkillViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        levelUps = CurrentUserData.allSkills?[indexTransfered!].levelUps
-        cleaned = (levelUps?.sorted(by: {$0.0 < $1.0}))!
+        cleaned = CurrentUserData.allLevelUps[skillNameTransfered!]!
         
         
         dates = cleaned.map { tuple in
@@ -58,30 +57,9 @@ class SkillViewController : UIViewController {
           dataCleaned.append(dataEntry)
         }
         let lineChartDataSet = LineChartDataSet(values: dataCleaned, label: nil)
-        let lineChartData = LineChartData(dataSet: lineChartDataSet)
-        lineChartView.data = lineChartData
-        
-        lineChartView.backgroundColor = .white
-        lineChartView.rightAxis.enabled = false
         lineChartDataSet.drawCirclesEnabled = false
+        let lineChartData = LineChartData(dataSet: lineChartDataSet)
         
-        let xAxis = lineChartView.xAxis
-        xAxis.granularityEnabled = true
-        xAxis.granularity = 1.0
-        //        xAxis.granularity = 3600.0 * 24.0
-                
-        xAxis.spaceMin = xAxis.granularity / 5
-        xAxis.spaceMax = xAxis.granularity / 5
-                
-        xAxis.drawLimitLinesBehindDataEnabled = true
-        xAxis.avoidFirstLastClippingEnabled = false
-                
-        xAxis.drawGridLinesEnabled = false
-                
-        xAxis.labelPosition = .bottom
-        xAxis.labelCount = 5
-        xAxis.valueFormatter = DateValueFormatter(miniTime : miniDate!)
-        
-        print(DateValueFormatter(miniTime: miniDate!))
+        LineChartCreator.createChart(lineChartView: lineChartView, data: lineChartData, miniDate: miniDate!)
     }
 }

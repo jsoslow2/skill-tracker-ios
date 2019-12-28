@@ -18,7 +18,7 @@ struct CurrentUserData {
     static var miniDate : Double?
     
     static var allSkills : [Skill]?
-    static var allLevelUps : [String : [(key: String, value: Any)]]?
+    static var allLevelUps : [String : [(key: String, value: Any)]] = [:]
     
     static func getLevelUps (skills: [Skill], completion: @escaping ([String : [(key: String, value: Any)]]) -> Void) {
         
@@ -40,8 +40,9 @@ struct CurrentUserData {
                     self.miniDate = unixTimestamp
                 }
             }
-            
-            allLevelUps?[skillName] = cleaned
+            print(cleaned)
+            print(skillName)
+            allLevelUps[skillName] = cleaned
         }
         
         completion(allLevelUps ?? [:])

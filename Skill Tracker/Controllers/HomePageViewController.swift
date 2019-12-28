@@ -60,6 +60,25 @@ class HomePageViewController: UIViewController {
     }
     
     @IBAction func newSkill(_ sender: Any) {    }
+    @IBAction func unwindToHome(_ sender: UIStoryboardSegue) {
+        DispatchQueue.main.async {
+            SkillService.getAllSkills(uid: CurrentUserData.uid!) { (allSkills) in
+                self.skills = allSkills
+                CurrentUserData.allSkills = allSkills
+                self.tableView.reloadData()
+                
+                
+                CurrentUserData.getLevelUps(skills: allSkills) { (levelUps) in
+                    for skill in levelUps {
+                        let lineChartDataSet = LineChartDataSet(values: skill.value, label: skill.key)
+                        lineChartDataSet.drawCirclesEnabled = false
+                        self.lineChartData.addDataSet(lineChartDataSet)
+                    }
+                    LineChartCreator.createChart(lineChartView: self.lineChartView, data: self.lineChartData, miniDate: CurrentUserData.miniDate!)
+                }
+            }
+        }
+    }
     
 }
 

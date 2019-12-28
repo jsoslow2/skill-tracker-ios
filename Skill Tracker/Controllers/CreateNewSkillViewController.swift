@@ -11,6 +11,8 @@ import UIKit
 
 class CreateNewSkillViewController : UIViewController {
     
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var skillTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,4 +21,15 @@ class CreateNewSkillViewController : UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! CompleteCreateASkillViewController
+        
+        destinationVC.passedSkillName = skillTextField.text
+    }
+    
+    @IBAction func goToNextVC(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToCompleteCreateASkill", sender: self)
+    }
+    
 }

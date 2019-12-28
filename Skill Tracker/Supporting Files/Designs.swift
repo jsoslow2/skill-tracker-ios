@@ -16,10 +16,11 @@ struct Designs {
     static let darkTurquoise = hexStringToUIColor(hex: "#027368")
     static let orangeContrast = hexStringToUIColor(hex: "#F25116")
     static let darkBlack = hexStringToUIColor(hex: "#0D0D0D")
+    static let colors = [lightBlue, midBlue, darkTurquoise, orangeContrast, darkBlack]
     
     
     static func formatLabel(label: UILabel, size: Int) {
-        label.font = UIFont(name: "Avenir", size: CGFloat(size))
+        label.font = UIFont(name: "Menlo", size: CGFloat(size))
     }
     
     

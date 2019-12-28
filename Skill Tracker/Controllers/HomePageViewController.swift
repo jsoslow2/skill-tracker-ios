@@ -22,8 +22,8 @@ class HomePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(CurrentUserData.email)
-        print("im here")
+        view.backgroundColor = .systemGray6
+
         
         tableView.delegate = self as? UITableViewDelegate
         tableView.dataSource = self as? UITableViewDataSource
@@ -38,6 +38,9 @@ class HomePageViewController: UIViewController {
                 for skill in levelUps {
                     let lineChartDataSet = LineChartDataSet(values: skill.value, label: skill.key)
                     lineChartDataSet.drawCirclesEnabled = false
+                    lineChartDataSet.drawCirclesEnabled = false
+                    lineChartDataSet.fillColor = NSUIColor(cgColor: Designs.colors.randomElement()!.cgColor)
+                    lineChartDataSet.drawFilledEnabled = true
                     self.lineChartData.addDataSet(lineChartDataSet)
                 }
                 LineChartCreator.createChart(lineChartView: self.lineChartView, data: self.lineChartData, miniDate: CurrentUserData.miniDate!)
@@ -72,6 +75,9 @@ class HomePageViewController: UIViewController {
                     for skill in levelUps {
                         let lineChartDataSet = LineChartDataSet(values: skill.value, label: skill.key)
                         lineChartDataSet.drawCirclesEnabled = false
+                        lineChartDataSet.fillColor = NSUIColor(cgColor: Designs.colors.randomElement()!.cgColor)
+                        lineChartDataSet.drawFilledEnabled = true
+                        
                         self.lineChartData.addDataSet(lineChartDataSet)
                     }
                     LineChartCreator.createChart(lineChartView: self.lineChartView, data: self.lineChartData, miniDate: CurrentUserData.miniDate!)
@@ -108,7 +114,6 @@ extension HomePageViewController: UITableViewDataSource, skillCellDelegate {
         cell.growthRate = skill.growthRate
         cell.currentLevel = skill.currentLevel
         
-
         cell.title.text = skill.skillName
         cell.level.text = String(Int(skill.currentLevel)) + "/100"
         cell.progressView.progress = Float(cell.currentLevel! / 100.0)

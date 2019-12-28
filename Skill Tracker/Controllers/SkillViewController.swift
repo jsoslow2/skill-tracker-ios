@@ -57,7 +57,12 @@ class SkillViewController : UIViewController {
           dataCleaned.append(dataEntry)
         }
         let lineChartDataSet = LineChartDataSet(values: dataCleaned, label: nil)
+        lineChartDataSet.axisDependency = .left
         lineChartDataSet.drawCirclesEnabled = false
+        lineChartDataSet.fillColor = .blue
+        lineChartDataSet.drawFilledEnabled = true
+        lineChartDataSet.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
+        lineChartDataSet.drawCircleHoleEnabled = false
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
         
         LineChartCreator.createChart(lineChartView: lineChartView, data: lineChartData, miniDate: miniDate!)

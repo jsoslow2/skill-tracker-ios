@@ -30,6 +30,7 @@
 		29EC53CA23B7DCCE0060E155 /* CompleteCreateASkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC53C923B7DCCE0060E155 /* CompleteCreateASkillViewController.swift */; };
 		29EC53CC23B7FCF00060E155 /* Designs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC53CB23B7FCF00060E155 /* Designs.swift */; };
 		29EC53CE23B814210060E155 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC53CD23B814210060E155 /* UIView.swift */; };
+		29EC53D023B84A4A0060E155 /* SkillManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC53CF23B84A4A0060E155 /* SkillManipulation.swift */; };
 		3B95B7E327972E1BBA1D5D5D /* Pods_Skill_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCEEFF920659D4A03B5CA6 /* Pods_Skill_Tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		29EC53C923B7DCCE0060E155 /* CompleteCreateASkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreateASkillViewController.swift; sourceTree = "<group>"; };
 		29EC53CB23B7FCF00060E155 /* Designs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designs.swift; sourceTree = "<group>"; };
 		29EC53CD23B814210060E155 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		29EC53CF23B84A4A0060E155 /* SkillManipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillManipulation.swift; sourceTree = "<group>"; };
 		3377D6EEB7D8FDE14D0B690F /* Pods-Skill Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skill Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Skill Tracker/Pods-Skill Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		67CCEEFF920659D4A03B5CA6 /* Pods_Skill_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skill_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC96694CC0D4D7B4635A50D /* Pods-Skill Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skill Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Skill Tracker/Pods-Skill Tracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				292304602394A699000BA663 /* CurrentUserData.swift */,
 				298F2163239616B000849D22 /* Skill.swift */,
+				29EC53CF23B84A4A0060E155 /* SkillManipulation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				2916B4E4239443F200C75480 /* AppDelegate.swift in Sources */,
 				298F2164239616B000849D22 /* Skill.swift in Sources */,
 				29BD9F2C23B42DB800107E90 /* CreateNewSkillViewController.swift in Sources */,
+				29EC53D023B84A4A0060E155 /* SkillManipulation.swift in Sources */,
 				292304612394A699000BA663 /* CurrentUserData.swift in Sources */,
 				29EC53CA23B7DCCE0060E155 /* CompleteCreateASkillViewController.swift in Sources */,
 				29EC53C823B7198D0060E155 /* LineChartCreator.swift in Sources */,

@@ -23,6 +23,8 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
+        
+        
 
         
         tableView.delegate = self as? UITableViewDelegate
@@ -43,7 +45,21 @@ class HomePageViewController: UIViewController {
                     lineChartDataSet.drawFilledEnabled = true
                     self.lineChartData.addDataSet(lineChartDataSet)
                 }
-                LineChartCreator.createChart(lineChartView: self.lineChartView, data: self.lineChartData, miniDate: CurrentUserData.miniDate!)
+                
+                
+                let data = SkillManipulation.maxByDateBySkill(allLevelUps: CurrentUserData.allLevelUps)
+                
+                SkillManipulation.sumByDate(dates: data) { (data) in
+                    dump(data)
+                    let lineChartDataSet = LineChartDataSet(values: data, label: "Total Level")
+                    lineChartDataSet.drawCirclesEnabled = false
+                    lineChartDataSet.drawCirclesEnabled = false
+                    lineChartDataSet.fillColor = NSUIColor(cgColor: Designs.colors.randomElement()!.cgColor)
+                    lineChartDataSet.drawFilledEnabled = true
+                    self.lineChartData.addDataSet(lineChartDataSet)
+                    
+                    LineChartCreator.createChart(lineChartView: self.lineChartView, data: self.lineChartData, miniDate: CurrentUserData.miniDate!)
+                }
             }
         }
         

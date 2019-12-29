@@ -25,7 +25,6 @@ open class DateValueFormatter : NSObject, IAxisValueFormatter
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String
     {
         let date2 = Date(timeIntervalSince1970 : (value) + miniTime)
-        print(date2)
         return dateFormatter.string(from: date2)
     }
 }

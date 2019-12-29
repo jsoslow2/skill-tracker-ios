@@ -21,6 +21,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let allSkills : [String : [(key: String, value: Any)]] = ["Fitness":[("10000.0", 37.0), ("200000.0", 50), ("200000.0", 51.0)],
+                                                                  "Social Skills": [("10000.0", 45.0)]]
+            print(SkillManipulation.maxValueByDateBySkill(allLevelUps: allSkills))
+        
         // Do any additional setup after loading the view.
         view.addSubview(loginButton)
         loginButton.center = view.center

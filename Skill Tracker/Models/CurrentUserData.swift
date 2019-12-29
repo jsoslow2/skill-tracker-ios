@@ -29,7 +29,6 @@ struct CurrentUserData {
             let levelUps = skill.levelUps
             
             let cleaned : [(key: String, value: Any)] = (levelUps.sorted(by: {$0.0 < $1.0}))
-            
             cleaned.map { tuple in
                 let unixTimestamp = Double(tuple.0)!
                 
@@ -53,7 +52,7 @@ struct CurrentUserData {
 
             allLevelUps[skillName] = cleaned
         }
-        
+        dump(allLevelUpsCharts)
         completion(allLevelUpsCharts)
     }
 }

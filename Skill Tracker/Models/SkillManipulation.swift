@@ -12,6 +12,35 @@ import UIKit
 
 struct SkillManipulation {
     
+    static func maxValueByDateBySkill (allLevelUps : [String : [(key: String, value: Any)]]) -> [String : [(date: String, max: Double)]] {
+        var completion : [String : [(date: String, max: Double)]] = [:]
+        
+        for i in allLevelUps {
+            let array = i.value
+            var dates : [(String, Double)] = []
+            var results : [(String, Double)] = []
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            
+            let rawDates = array.map {dateFormatter.string(from: Date(timeIntervalSince1970: Double($0.0)!))}
+            let values = array.map {Double(($0.1 as AnyObject).doubleValue)}
+            
+            dates = zip(rawDates, values).map { ($0, $1) }
+
+            let keys = Set<String>(dates.map{($0.0)})
+            for key in keys {
+                let max = dates.filter({$0.0 == key}).map({$0.1}).max()
+                
+                results.append((String(key), max!))
+            }
+            let skillName = String(i.key)
+            completion[skillName] = results
+
+        }
+        print("spooglewatt")
+        return completion
+    }
+    
     static func maxByDateBySkill (allLevelUps : [String : [(key: String, value: Any)]]) -> [(String, Double)] {
         var max : [Double] = []
         var dateStrings : [String] = []

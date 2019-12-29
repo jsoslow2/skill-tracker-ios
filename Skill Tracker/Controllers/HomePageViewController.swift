@@ -36,29 +36,42 @@ class HomePageViewController: UIViewController {
             self.tableView.reloadData()
             
             
+             
             CurrentUserData.getLevelUps(skills: allSkills) { (levelUps) in
+                /*
                 for skill in levelUps {
                     let lineChartDataSet = LineChartDataSet(values: skill.value, label: skill.key)
                     lineChartDataSet.drawCirclesEnabled = false
                     lineChartDataSet.drawCirclesEnabled = false
-                    lineChartDataSet.fillColor = NSUIColor(cgColor: Designs.colors.randomElement()!.cgColor)
-                    lineChartDataSet.drawFilledEnabled = true
+                    lineChartDataSet.setColor(NSUIColor(cgColor: Designs.colors.randomElement()!.cgColor))
+                    lineChartDataSet.mode = .cubicBezier
+                    lineChartDataSet.drawValuesEnabled = false
                     self.lineChartData.addDataSet(lineChartDataSet)
                 }
-                
+               */
                 
                 let data = SkillManipulation.maxByDateBySkill(allLevelUps: CurrentUserData.allLevelUps)
                 
                 SkillManipulation.sumByDate(dates: data) { (data) in
-                    dump(data)
                     let lineChartDataSet = LineChartDataSet(values: data, label: "Total Level")
                     lineChartDataSet.drawCirclesEnabled = false
-                    lineChartDataSet.drawCirclesEnabled = false
-                    lineChartDataSet.fillColor = NSUIColor(cgColor: Designs.colors.randomElement()!.cgColor)
+                    lineChartDataSet.lineWidth = 5.0
+                    
+                    let color = Designs.colors.randomElement()!.cgColor
+                    let gradientColors = [color, UIColor.clear.cgColor] as CFArray // Colors of the gradient
+                    let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
+                    let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations) // Gradient Object
+                    lineChartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
+                    lineChartDataSet.fillAlpha = 1.0
+                    lineChartDataSet.mode = .cubicBezier
                     lineChartDataSet.drawFilledEnabled = true
                     self.lineChartData.addDataSet(lineChartDataSet)
                     
                     LineChartCreator.createChart(lineChartView: self.lineChartView, data: self.lineChartData, miniDate: CurrentUserData.miniDate!)
+                    
+                    self.lineChartView.animate(yAxisDuration: 2.0)
+                    self.lineChartView.largeContentTitle = "Total Level"
+                    
                 }
             }
         }

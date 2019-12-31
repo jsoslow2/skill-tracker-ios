@@ -47,6 +47,7 @@ struct SkillManipulation {
         var skillSorts : [(String , Double)] = []
         var skills : [String] = []
         let dateFormatter = DateFormatter()
+        var totalChartArray : [ChartDataEntry] = []
         dateFormatter.dateFormat = "yyyy-MM-dd"
         var results : [String: [ChartDataEntry]] = [:]
         
@@ -119,8 +120,13 @@ let newData = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill:
                     }
                 }
             }
+            let maxValue = dictionaryOfDates[key]!
+            let entry = ChartDataEntry(x: theKey - CurrentUserData.miniDate!, y: maxValue)
+            totalChartArray.append(entry)
         }
+        results["Total Level"] = totalChartArray
         print(results)
+        print("WTF")
         completion(results)
     }
     
@@ -153,14 +159,21 @@ let newData = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill:
         
         let results = zip(dateStrings, max).map { ($0, $1) }
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let timestamps = results.map {DateFunctions.stringToTimestamp(date: $0.0, dateFormatter: dateFormatter)}
+        CurrentUserData.miniDate = timestamps.min()
+        
         return results
     }
     
     static func sumByDate(dates : [(String, Double)], completion: @escaping([ChartDataEntry]) -> Void) {
+        let sequence = DateFunctions.getDateSequence(miniDate: CurrentUserData.miniDate!, currentDate: NSDate())
         var results : [(timestamp: Double, value: Double)] = []
         let keys = Set<String>(dates.map{($0.0)})
         var timestamps : [Double] = []
         
+        var values : [(String, Double)] = []
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         for key in keys {
@@ -170,7 +183,12 @@ let newData = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill:
             
             timestamps.append(Double(timeStamp))
             results.append((Double(timeStamp), sum))
+            values.append((key, sum))
         }
+        
+        values = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill: values)
+        print(values)
+        print("Spooglewatt")
         
         CurrentUserData.miniDate = timestamps.min()
         

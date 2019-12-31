@@ -78,7 +78,7 @@ class HomePageViewController: UIViewController {
                                 lineChartDataSet.drawCirclesEnabled = false
                                 lineChartDataSet.drawCirclesEnabled = false
                                 lineChartDataSet.setColor(NSUIColor(cgColor: Designs.colors.randomElement()!.cgColor))
-                                lineChartDataSet.mode = .cubicBezier
+                                
                                 lineChartDataSet.drawValuesEnabled = false
                                 self.lineChartData.addDataSet(lineChartDataSet)
                             }

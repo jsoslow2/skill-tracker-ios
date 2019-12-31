@@ -35,61 +35,32 @@ class HomePageViewController: UIViewController {
             CurrentUserData.allSkills = allSkills
             self.tableView.reloadData()
             
-            
-             
+            //Create Chart
             CurrentUserData.getLevelUps(skills: allSkills) { (levelUps) in
-                /*
-                for skill in levelUps {
-                    let lineChartDataSet = LineChartDataSet(values: skill.value, label: skill.key)
-                    lineChartDataSet.drawCirclesEnabled = false
-                    lineChartDataSet.drawCirclesEnabled = false
-                    lineChartDataSet.setColor(NSUIColor(cgColor: Designs.colors.randomElement()!.cgColor))
-                    lineChartDataSet.mode = .cubicBezier
-                    lineChartDataSet.drawValuesEnabled = false
-                    self.lineChartData.addDataSet(lineChartDataSet)
+                
+                let skillmanip = SkillManipulation.maxValueByDateBySkill(allLevelUps: CurrentUserData.allLevelUps)
+                
+                SkillManipulation.sumByDateBySkill(skillMax: skillmanip) { (allSkillCharts) in
+                    for skill in CurrentUserData.skillsSorted!.reversed() {
+                        let values = allSkillCharts[skill]
+                        let lineChartDataSet = LineChartDataSet(values:  values, label: skill)
+                        lineChartDataSet.drawCirclesEnabled = false
+                        lineChartDataSet.drawCirclesEnabled = false
+                        let color = Designs.colors.randomElement()!.cgColor
+                        lineChartDataSet.setColor(NSUIColor(cgColor: color))
+                        lineChartDataSet.fillColor = NSUIColor(cgColor: color)
+                        lineChartDataSet.fillAlpha = 1.0
+                        lineChartDataSet.drawFilledEnabled = true
+                        
+                        lineChartDataSet.drawValuesEnabled = false
+                        self.lineChartData.addDataSet(lineChartDataSet)
+                    }
                 }
-               */
                 
-                let data = SkillManipulation.maxByDateBySkill(allLevelUps: CurrentUserData.allLevelUps)
+                LineChartCreator.createChart(lineChartView: self.lineChartView, data: self.lineChartData, miniDate: CurrentUserData.miniDate!)
                 
-                
-                SkillManipulation.sumByDate(dates: data) { (data) in
-                    let lineChartDataSet = LineChartDataSet(values: data, label: "Total Level")
-                    lineChartDataSet.drawCirclesEnabled = false
-                    lineChartDataSet.lineWidth = 5.0
-                    
-                    let color = Designs.colors.randomElement()!.cgColor
-                    let color2 = Designs.colors.randomElement()!.cgColor
-                    let gradientColors = [color, color2] as CFArray // Colors of the gradient
-                    let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
-                    let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations) // Gradient Object
-                    lineChartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
-                    lineChartDataSet.fillAlpha = 1.0
-                    lineChartDataSet.setColor(NSUIColor(cgColor: color))
-                    lineChartDataSet.mode = .cubicBezier
-                    lineChartDataSet.drawFilledEnabled = true
-                    self.lineChartData.addDataSet(lineChartDataSet)
-                    
-                    let skillmanip = SkillManipulation.maxValueByDateBySkill(allLevelUps: CurrentUserData.allLevelUps)
-                    
-                        SkillManipulation.sumByDateBySkill(skillMax: skillmanip) { (allSkillCharts) in
-                            for skill in allSkillCharts {
-                                let lineChartDataSet = LineChartDataSet(values: skill.value, label: skill.key)
-                                lineChartDataSet.drawCirclesEnabled = false
-                                lineChartDataSet.drawCirclesEnabled = false
-                                lineChartDataSet.setColor(NSUIColor(cgColor: Designs.colors.randomElement()!.cgColor))
-                                
-                                lineChartDataSet.drawValuesEnabled = false
-                                self.lineChartData.addDataSet(lineChartDataSet)
-                            }
-                        }
-                    
-                    LineChartCreator.createChart(lineChartView: self.lineChartView, data: self.lineChartData, miniDate: CurrentUserData.miniDate!)
-                    
-                    self.lineChartView.animate(yAxisDuration: 2.0)
-                    self.lineChartView.largeContentTitle = "Total Level"
-                    
-                }
+                self.lineChartView.animate(yAxisDuration: 2.0)
+                self.lineChartView.largeContentTitle = "Total Level"
             }
         }
         

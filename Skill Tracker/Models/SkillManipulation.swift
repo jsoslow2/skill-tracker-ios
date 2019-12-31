@@ -70,6 +70,9 @@ let newData = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill:
         
         skillSorts = skillSorts.sorted {$0.1 < $1.1}
         skills = skillSorts.map {$0.0}
+        CurrentUserData.skillsSorted = skills
+        CurrentUserData.skillsSorted!.append("Total Level")
+
         
         var keys = Array(Set<Double>(timestamps))
         keys = keys.sorted()

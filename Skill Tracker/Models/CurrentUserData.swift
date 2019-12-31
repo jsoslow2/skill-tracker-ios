@@ -18,6 +18,7 @@ struct CurrentUserData {
     static var uid : String?
     static var miniDate : Double?
     static var allDates : [Date]?
+    static var skillsSorted : [String]?
     
     static var allSkills : [Skill]?
     static var allLevelUps : [String : [(key: String, value: Any)]] = [:]

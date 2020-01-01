@@ -85,8 +85,9 @@ let newData = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill:
             for a in skills {
                 let i = skillMaxCopy[a]
                 if let value = dictionaryOfDates[key] {
-                    let oldValue = i!.filter({$0.0 == key}).map({$0.1}).reduce(0, +)
-                    if oldValue == 0 {continue}
+                    let onDate = i!.filter({$0.0 == key})
+                    let oldValue = onDate.map({$0.1}).reduce(0, +)
+                    if onDate.count == 0 {continue}
                     let newValue = oldValue + value
                     dictionaryOfDates[key] = newValue
                     
@@ -105,8 +106,9 @@ let newData = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill:
                     
                 } else {
                     //Create new value in dictionary and add to the chart data entry
-                    let newValue = i!.filter({$0.0 == key}).map({$0.1}).reduce(0, +)
-                    if newValue == 0 {continue}
+                    let onDate = i!.filter({$0.0 == key})
+                    let newValue = onDate.map({$0.1}).reduce(0, +)
+                    if onDate.count == 0 {continue}
                     dictionaryOfDates[key] = newValue
                     
                     let date = dateFormatter.date(from: key)

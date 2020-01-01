@@ -15,8 +15,8 @@ class HomePageViewController: UIViewController {
     var dataRaw : [String: [ChartDataEntry]] = [:]
     var lineChartData = LineChartData()
     
-    @IBOutlet weak var theButton: UIButton!
     @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var tableTitle: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,7 +24,10 @@ class HomePageViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         
+        Designs.formatLabel(label: tableTitle, size: 17)
+        tableTitle.text = "Level Up Skills"
         
+        lineChartView.addShadowView()
 
         
         tableView.delegate = self as? UITableViewDelegate
@@ -48,7 +51,7 @@ class HomePageViewController: UIViewController {
                         lineChartDataSet.drawCirclesEnabled = false
                         let color = Designs.colors[i]
                        
-                        let gradientColors = [color.cgColor, color.withAlphaComponent(0.25).cgColor] as CFArray // Colors of the gradient
+                        let gradientColors = [color.cgColor, color.withAlphaComponent(0.5).cgColor] as CFArray // Colors of the gradient
                         let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
                         let colorSpace = CGColorSpaceCreateDeviceRGB()
                         let gradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors, locations: colorLocations) // Gradient Object
@@ -73,6 +76,7 @@ class HomePageViewController: UIViewController {
                 
                 self.lineChartView.animate(yAxisDuration: 2.0)
                 self.lineChartView.largeContentTitle = "Total Level"
+                self.lineChartView.legend.orientation = .horizontal                
             }
         }
         

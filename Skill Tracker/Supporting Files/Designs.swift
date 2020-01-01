@@ -11,13 +11,20 @@ import UIKit
 import Charts
 
 struct Designs {
-    static let pastelBlue = hexStringToUIColor(hex: "#a8e6cf")
-    static let pastelGreen = hexStringToUIColor(hex: "#dcedc1")
-    static let pastelOrange = hexStringToUIColor(hex: "#ffd3b6")
-    static let pastelPink = hexStringToUIColor(hex: "#ffaaa5")
-    static let pastelRed = hexStringToUIColor(hex: "#ff8b94")
+    static let blue1 = hexStringToUIColor(hex: "#DCECC9")
+    static let blue2 = hexStringToUIColor(hex: "#B3DDCC")
+    static let blue3 = hexStringToUIColor(hex: "#8BCDCE")
+    static let blue4 = hexStringToUIColor(hex: "#63BED3")
+    static let blue5 = hexStringToUIColor(hex: "#46ABCE")
+    static let blue6 = hexStringToUIColor(hex: "#3D91BE")
+    static let blue7 = hexStringToUIColor(hex: "#3577AF")
+    static let blue8 = hexStringToUIColor(hex: "#2D5F9F")
+    static let blue9 = hexStringToUIColor(hex: "#24448E")
+    static let blue10 = hexStringToUIColor(hex: "#1D2B7F")
+    static let blue11 = hexStringToUIColor(hex: "#162065")
+    static let blue12 = hexStringToUIColor(hex: "#162065")
     static let darkBlack = hexStringToUIColor(hex: "#0D0D0D")
-    static let colors = [pastelBlue, pastelGreen, pastelOrange, pastelPink, pastelRed, darkBlack]
+    static let colors = [blue1, blue2, blue3, blue4, blue5, blue6, blue7, blue8, blue9, blue10, blue11, blue12, darkBlack]
     
     
     static func formatLabel(label: UILabel, size: Int) {

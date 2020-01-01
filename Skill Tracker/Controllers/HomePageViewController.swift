@@ -41,18 +41,30 @@ class HomePageViewController: UIViewController {
                 let skillmanip = SkillManipulation.maxValueByDateBySkill(allLevelUps: CurrentUserData.allLevelUps)
                 
                 SkillManipulation.sumByDateBySkill(skillMax: skillmanip) { (allSkillCharts) in
+                    var i = 0
                     for skill in CurrentUserData.skillsSorted!.reversed() {
                         let values = allSkillCharts[skill]
                         let lineChartDataSet = LineChartDataSet(values:  values, label: skill)
                         lineChartDataSet.drawCirclesEnabled = false
-                        lineChartDataSet.drawCirclesEnabled = false
-                        let color = Designs.colors.randomElement()!.cgColor
-                        lineChartDataSet.setColor(NSUIColor(cgColor: color))
-                        lineChartDataSet.fillColor = NSUIColor(cgColor: color)
+                        let color = Designs.colors[i]
+                       
+                        let gradientColors = [color.cgColor, color.withAlphaComponent(0.25).cgColor] as CFArray // Colors of the gradient
+                        let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
+                        let colorSpace = CGColorSpaceCreateDeviceRGB()
+                        let gradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors, locations: colorLocations) // Gradient Object
+                        lineChartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
+                        i += 1
+                        lineChartDataSet.setColor(NSUIColor(cgColor: color.cgColor))
                         lineChartDataSet.fillAlpha = 1.0
                         lineChartDataSet.drawFilledEnabled = true
-                        
                         lineChartDataSet.drawValuesEnabled = false
+                        lineChartDataSet.mode = .horizontalBezier
+                        
+                        if skill == "Total Level" {
+                            lineChartDataSet.lineWidth = 7.0
+                            lineChartDataSet.setColor(NSUIColor(cgColor: Designs.darkBlack.cgColor))
+                            lineChartDataSet.drawValuesEnabled = true
+                        }
                         self.lineChartData.addDataSet(lineChartDataSet)
                     }
                 }

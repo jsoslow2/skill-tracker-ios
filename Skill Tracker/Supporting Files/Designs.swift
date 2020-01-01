@@ -11,12 +11,13 @@ import UIKit
 import Charts
 
 struct Designs {
-    static let lightBlue = hexStringToUIColor(hex: "#A7C8F2")
-    static let midBlue = hexStringToUIColor(hex: "#048ABF")
-    static let darkTurquoise = hexStringToUIColor(hex: "#027368")
-    static let orangeContrast = hexStringToUIColor(hex: "#F25116")
+    static let pastelBlue = hexStringToUIColor(hex: "#a8e6cf")
+    static let pastelGreen = hexStringToUIColor(hex: "#dcedc1")
+    static let pastelOrange = hexStringToUIColor(hex: "#ffd3b6")
+    static let pastelPink = hexStringToUIColor(hex: "#ffaaa5")
+    static let pastelRed = hexStringToUIColor(hex: "#ff8b94")
     static let darkBlack = hexStringToUIColor(hex: "#0D0D0D")
-    static let colors = [lightBlue, midBlue, darkTurquoise, orangeContrast, darkBlack]
+    static let colors = [pastelBlue, pastelGreen, pastelOrange, pastelPink, pastelRed, darkBlack]
     
     
     static func formatLabel(label: UILabel, size: Int) {

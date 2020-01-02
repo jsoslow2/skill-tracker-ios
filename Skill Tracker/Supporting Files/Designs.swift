@@ -26,9 +26,14 @@ struct Designs {
     static let darkBlack = hexStringToUIColor(hex: "#0D0D0D")
     static let colors = [blue1, blue2, blue3, blue4, blue5, blue6, blue7, blue8, blue9, blue10, blue11, blue12, darkBlack]
     
+    static let mainColor = blue10
     
-    static func formatLabel(label: UILabel, size: Int) {
+    
+    static func formatLabel(label: UILabel, size: Int, doColor: Bool = false) {
         label.font = UIFont(name: "Menlo", size: CGFloat(size))
+        if doColor == true {
+            label.textColor = Designs.mainColor
+        }
     }
     
     

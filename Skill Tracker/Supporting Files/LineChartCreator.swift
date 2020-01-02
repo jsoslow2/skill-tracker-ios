@@ -32,7 +32,7 @@ struct LineChartCreator {
         xAxis.drawGridLinesEnabled = false
                 
         xAxis.labelPosition = .bottom
-        xAxis.labelCount = 5
+        xAxis.labelCount = 6
         xAxis.valueFormatter = DateValueFormatter(miniTime : miniDate)
         
     }

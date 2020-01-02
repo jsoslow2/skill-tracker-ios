@@ -18,7 +18,7 @@ open class DateValueFormatter : NSObject, IAxisValueFormatter
         //super.init()
         self.miniTime = miniTime
         self.dateFormatter = DateFormatter()
-        self.dateFormatter.dateFormat = "MM/dd HH:mm"
+        self.dateFormatter.dateFormat = "MM/dd"
         dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT+0:00") as TimeZone?
     }
     

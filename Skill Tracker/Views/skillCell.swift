@@ -29,10 +29,12 @@ class skillCell : UITableViewCell {
     var delegate: skillCellDelegate?
     
     override func awakeFromNib() {
-        Designs.formatLabel(label: title, size: 14)
+        Designs.formatLabel(label: title, size: 14, doColor: true)
         Designs.formatLabel(label: level, size: 10)
         
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 4)
+        progressView.progressTintColor = Designs.blue4
+        
         
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         levelUpButton.addShadowView()
@@ -57,7 +59,7 @@ class skillCell : UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         //set the values for top,left,bottom,right margins
-                let margins = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+                let margins = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         contentView.frame = contentView.frame.inset(by: margins)
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true

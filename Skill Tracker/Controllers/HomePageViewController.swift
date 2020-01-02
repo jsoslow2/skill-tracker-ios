@@ -17,6 +17,7 @@ class HomePageViewController: UIViewController {
     
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var tableTitle: UILabel!
+    @IBOutlet weak var chartTitle: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,6 +27,9 @@ class HomePageViewController: UIViewController {
         
         Designs.formatLabel(label: tableTitle, size: 17)
         tableTitle.text = "Level Up Skills"
+        Designs.formatLabel(label: chartTitle, size: 14)
+        chartTitle.text = "Total Level by Date"
+
         
         lineChartView.addShadowView()
 
@@ -56,7 +60,19 @@ class HomePageViewController: UIViewController {
                         let colorSpace = CGColorSpaceCreateDeviceRGB()
                         let gradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors, locations: colorLocations) // Gradient Object
                         lineChartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
-                        i += 1
+                        
+                        if (CurrentUserData.skillsSorted!.count <= 2) {
+                            i += 6
+                        } else if (CurrentUserData.skillsSorted!.count <= 3) {
+                            i += 4
+                            } else if (CurrentUserData.skillsSorted!.count <= 4) {
+                            i += 3
+                        } else if  (CurrentUserData.skillsSorted!.count <= 6) {
+                            i += 2
+                        } else {
+                            i += 1
+                        }
+                        
                         lineChartDataSet.setColor(NSUIColor(cgColor: color.cgColor))
                         lineChartDataSet.fillAlpha = 1.0
                         lineChartDataSet.drawFilledEnabled = true
@@ -75,8 +91,6 @@ class HomePageViewController: UIViewController {
                 LineChartCreator.createChart(lineChartView: self.lineChartView, data: self.lineChartData, miniDate: CurrentUserData.miniDate!)
                 
                 self.lineChartView.animate(yAxisDuration: 2.0)
-                self.lineChartView.largeContentTitle = "Total Level"
-                self.lineChartView.legend.orientation = .horizontal                
             }
         }
         

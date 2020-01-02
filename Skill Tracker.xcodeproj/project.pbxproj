@@ -21,6 +21,7 @@
 		29230463239605E6000BA663 /* SkillService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29230462239605E6000BA663 /* SkillService.swift */; };
 		292B432723BAF23500778FCA /* DateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B432623BAF23500778FCA /* DateFunctions.swift */; };
 		298F2164239616B000849D22 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F2163239616B000849D22 /* Skill.swift */; };
+		29A9B21823BD810600E0455F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A9B21723BD810600E0455F /* UIButton.swift */; };
 		29BD9F2823B4191C00107E90 /* skillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD9F2723B4191C00107E90 /* skillCell.swift */; };
 		29BD9F2A23B42D8E00107E90 /* CreateNewSkillStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BD9F2923B42D8E00107E90 /* CreateNewSkillStoryboard.storyboard */; };
 		29BD9F2C23B42DB800107E90 /* CreateNewSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD9F2B23B42DB800107E90 /* CreateNewSkillViewController.swift */; };
@@ -53,6 +54,7 @@
 		29230462239605E6000BA663 /* SkillService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillService.swift; sourceTree = "<group>"; };
 		292B432623BAF23500778FCA /* DateFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFunctions.swift; sourceTree = "<group>"; };
 		298F2163239616B000849D22 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		29A9B21723BD810600E0455F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		29BD9F2723B4191C00107E90 /* skillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skillCell.swift; sourceTree = "<group>"; };
 		29BD9F2923B42D8E00107E90 /* CreateNewSkillStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateNewSkillStoryboard.storyboard; sourceTree = "<group>"; };
 		29BD9F2B23B42DB800107E90 /* CreateNewSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewSkillViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				29EC53CD23B814210060E155 /* UIView.swift */,
+				29A9B21723BD810600E0455F /* UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -353,6 +357,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -374,6 +379,7 @@
 				29EC53CC23B7FCF00060E155 /* Designs.swift in Sources */,
 				29EC53C623B703950060E155 /* DateValueFormatter.swift in Sources */,
 				2916B509239484A200C75480 /* HomePageViewController.swift in Sources */,
+				29A9B21823BD810600E0455F /* UIButton.swift in Sources */,
 				29BD9F2823B4191C00107E90 /* skillCell.swift in Sources */,
 				292B432723BAF23500778FCA /* DateFunctions.swift in Sources */,
 				2923045F23949866000BA663 /* UserService.swift in Sources */,

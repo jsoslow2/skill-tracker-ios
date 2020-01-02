@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Charts
+import SCLAlertView
 
 class HomePageViewController: UIViewController {
     var skills : [Skill]?
@@ -181,15 +182,19 @@ extension HomePageViewController: UITableViewDataSource, skillCellDelegate {
     }
     
     func levelUp(on cell: skillCell) {
+        let originalLevel = Double(round(cell.currentLevel! * 100) / 100)
         SkillService.levelUpSkill(uid: CurrentUserData.uid!, skillName: cell.skillName!, currentLevel: cell.currentLevel!, growthRate: cell.growthRate!) { (newLevel) in
             
             CurrentUserData.allSkills![cell.indexNumber!].currentLevel = newLevel
             self.skills = CurrentUserData.allSkills
             
             self.tableView.reloadData()
+            
+            let newLevel = Double(round(newLevel * 100) / 100)
+            let subtitleText = "You've gone from Level " + String(originalLevel) + " to Level " + String(newLevel)
+            
+            SCLAlertView().showTitle("Level Up!", subTitle: subtitleText, timeout:.none, completeText: nil, style: .success, colorStyle: 723320959, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .rightToLeft)
         }
-        
-        
         print("Leveled Up!")
     }
     

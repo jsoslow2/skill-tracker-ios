@@ -49,6 +49,15 @@ class skillCell : UITableViewCell {
     
     @IBAction func levelUp(_ sender: Any) {
         delegate?.levelUp(on: self)
+        UIView.animate(withDuration: 0.3,
+        animations: {
+            self.levelUpButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        },
+        completion: { _ in
+            UIView.animate(withDuration: 0.3) {
+                self.levelUpButton.transform = CGAffineTransform.identity
+            }
+        })
     }
     
     @objc func goToSkill (sender: UITapGestureRecognizer) {

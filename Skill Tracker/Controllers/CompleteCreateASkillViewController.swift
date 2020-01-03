@@ -12,20 +12,45 @@ import UIKit
 class CompleteCreateASkillViewController : UIViewController {
     var passedSkillName : String?
     
-    @IBOutlet weak var skillName: UILabel!
+    @IBOutlet weak var mainTitle: UILabel!
     @IBOutlet weak var skillSliderView: UISlider!
     @IBOutlet weak var skillLevel: UILabel!
     @IBOutlet weak var growthSlider: UISlider!
     @IBOutlet weak var growthRate: UILabel!
     @IBOutlet weak var completeButton: UIButton!
-    
+    @IBOutlet weak var skillTitle: UILabel!
+    @IBOutlet weak var growthRateTitle: UILabel!
+    @IBOutlet weak var growthRateSubtitle: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        skillName.text = passedSkillName
-        skillLevel.text = String(Int(skillSliderView.value))
-        growthRate.text = String(Int(growthSlider.value) / 100) + "%"
+        view.backgroundColor = .systemGray6
+                
+        mainTitle.font = UIFont(name: "Menlo-Bold", size: 25.0)
+        mainTitle.text = "Current Skill Level?"
+        
+        skillTitle.font = UIFont(name: "Menlo", size: 15)
+        skillTitle.text = "Level 0 = New Skill. Level 100 = Best in the World. Most people start skills between Level 0 and Level 30"
+        skillTitle.textColor = .systemGray
+        
+        skillLevel.text = "Level " + String(Int(skillSliderView.value))
+        skillLevel.font = UIFont(name: "Menlo", size: 15.0)
+        
+        growthRateTitle.font = UIFont(name: "Menlo-Bold", size: 25.0)
+        growthRateTitle.text = "Growth Rate"
+        
+        growthRateSubtitle.font = UIFont(name: "Menlo", size: 15.0)
+        growthRateSubtitle.text = "1% Growth is the best. However, you can change it if you like."
+        growthRateSubtitle.textColor = .systemGray
+        
+        growthRate.text = "1%"
+        growthRate.font = UIFont(name: "Menlo", size: 15.0)
+        
+        completeButton.backgroundColor = Designs.mainColor
+        completeButton.layer.cornerRadius = 10
+        completeButton.addShadowView()
+        completeButton.setTitleColor(.white, for: .normal)
         
     }
     override func didReceiveMemoryWarning() {
@@ -36,7 +61,7 @@ class CompleteCreateASkillViewController : UIViewController {
         skillLevel.text = "Level " + String(Int(skillSliderView.value))
     }
     @IBAction func growthSliderChange(_ sender: Any) {
-        growthRate.text = String(Int(growthSlider.value)) + " %"
+        growthRate.text = String(Int(growthSlider.value)) + "%"
     }
     
     @IBAction func completeCreateASkill(_ sender: Any) {

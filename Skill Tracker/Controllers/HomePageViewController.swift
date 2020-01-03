@@ -75,9 +75,9 @@ class HomePageViewController: UIViewController {
                 
                 
                 CurrentUserData.getLevelUps(skills: allSkills) { (levelUps) in
-                    for skill in levelUps {
+                    
                         LineChartCreator.doDataProcessingAndCreateChart(lineChartData: self.lineChartData, lineChartView: self.lineChartView)
-                }
+                
             }
         }
     }

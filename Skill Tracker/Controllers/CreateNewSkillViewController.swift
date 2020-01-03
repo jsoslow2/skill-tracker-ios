@@ -14,9 +14,28 @@ class CreateNewSkillViewController : UIViewController {
     
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var skillTextField: UITextField!
+    @IBOutlet weak var subTitle: UILabel!
+    @IBOutlet weak var mainTitle: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemGray6
+        
+        Designs.formatLabel(label: subTitle, size: 15, doColor: false)
+        subTitle.text = "Pick a skill you want to improve over time. Some examples of great skills include 'Fitness', 'Meditation', or 'Python'"
+        subTitle.textColor = .systemGray
+        
+        mainTitle.font = UIFont(name: "Menlo-Bold", size: 25)
+        
+        skillTextField.font = UIFont(name: "Menlo", size: 25)
+        skillTextField.borderStyle = .roundedRect
+        
+        continueButton.titleLabel?.font = UIFont(name: "Menlo", size: 15)
+        continueButton.backgroundColor = Designs.mainColor
+        continueButton.setTitleColor(.white, for: .normal)
+        continueButton.layer.cornerRadius = 10
+        continueButton.addShadowView()
+        
     }
     
     override func didReceiveMemoryWarning() {

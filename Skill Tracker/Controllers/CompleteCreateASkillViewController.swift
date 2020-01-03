@@ -24,6 +24,8 @@ class CompleteCreateASkillViewController : UIViewController {
         super.viewDidLoad()
         
         skillName.text = passedSkillName
+        skillLevel.text = String(Int(skillSliderView.value))
+        growthRate.text = String(Int(growthSlider.value) / 100) + "%"
         
     }
     override func didReceiveMemoryWarning() {
@@ -31,10 +33,10 @@ class CompleteCreateASkillViewController : UIViewController {
     }
 
     @IBAction func skillSliderChange(_ sender: Any) {
-        skillLevel.text = String(Int(skillSliderView.value))
+        skillLevel.text = "Level " + String(Int(skillSliderView.value))
     }
     @IBAction func growthSliderChange(_ sender: Any) {
-        growthRate.text = String(round(growthSlider.value) / 100)
+        growthRate.text = String(Int(growthSlider.value)) + " %"
     }
     
     @IBAction func completeCreateASkill(_ sender: Any) {

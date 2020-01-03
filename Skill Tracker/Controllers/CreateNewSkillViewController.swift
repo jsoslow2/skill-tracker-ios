@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SCLAlertView
 
 class CreateNewSkillViewController : UIViewController {
     
@@ -28,8 +29,21 @@ class CreateNewSkillViewController : UIViewController {
         destinationVC.passedSkillName = skillTextField.text
     }
     
+    func checkText () -> Bool {
+        
+        if skillTextField.text == "" {
+            SCLAlertView().showTitle("Input a name for the skill", subTitle: "", timeout:.none, completeText: nil, style: .warning, colorStyle: UInt(bitPattern: 16765243), colorTextButton: UInt(bitPattern: 855309), circleIconImage: nil, animationStyle: .bottomToTop)
+            return false
+        } else {
+            return true
+        }
+        
+    }
+    
     @IBAction func goToNextVC(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToCompleteCreateASkill", sender: self)
+        if checkText() {
+          self.performSegue(withIdentifier: "goToCompleteCreateASkill", sender: self)
+        }
     }
     
 }

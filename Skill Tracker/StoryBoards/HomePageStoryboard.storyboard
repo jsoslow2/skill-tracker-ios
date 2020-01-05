@@ -26,27 +26,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAM-l0-CDu">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="53"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAM-l0-CDu">
+                                                    <rect key="frame" x="20" y="10" width="374" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Ew1-TY-k1l"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-F5-oRX">
-                                                    <rect key="frame" x="20" y="44" width="60" height="49"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-F5-oRX">
+                                                    <rect key="frame" x="269" y="10" width="40" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="JX2-fD-DSW"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="dfx-PH-WWp">
-                                                    <rect key="frame" x="81" y="49" width="215" height="2"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="dfx-PH-WWp">
+                                                    <rect key="frame" x="49" y="78" width="233" height="2"/>
                                                 </progressView>
-                                                <button opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwu-01-cxf">
-                                                    <rect key="frame" x="314" y="13" width="75" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwu-01-cxf">
+                                                    <rect key="frame" x="319" y="13" width="75" height="75"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="75" id="OH7-MA-FVX"/>
+                                                        <constraint firstAttribute="width" secondItem="pwu-01-cxf" secondAttribute="height" multiplier="1:1" id="jFM-NA-Q3P"/>
+                                                    </constraints>
                                                     <state key="normal" title="Level Up" image="blue plus">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
@@ -54,13 +60,43 @@
                                                         <action selector="levelUp:" destination="IjJ-fW-9hU" eventType="touchUpInside" id="yWO-BR-xNG"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uf-L2-PX6">
+                                                    <rect key="frame" x="20" y="67" width="21" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLL-4M-PNF">
+                                                    <rect key="frame" x="288" y="67" width="21" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="XLL-4M-PNF" secondAttribute="bottom" constant="12" id="91H-FN-him"/>
+                                                <constraint firstItem="pwu-01-cxf" firstAttribute="top" secondItem="cTL-4X-Zvd" secondAttribute="top" constant="13" id="95x-1h-3Kg"/>
+                                                <constraint firstItem="pwu-01-cxf" firstAttribute="leading" secondItem="wnv-F5-oRX" secondAttribute="trailing" constant="10" id="COz-LZ-BwX"/>
+                                                <constraint firstAttribute="trailing" secondItem="cAM-l0-CDu" secondAttribute="trailing" constant="20" id="Jfw-xu-sm7"/>
+                                                <constraint firstItem="XLL-4M-PNF" firstAttribute="leading" secondItem="dfx-PH-WWp" secondAttribute="trailing" constant="6" id="Kdf-wv-6Zp"/>
+                                                <constraint firstItem="pwu-01-cxf" firstAttribute="leading" secondItem="XLL-4M-PNF" secondAttribute="trailing" constant="10" id="Ng0-ov-G7d"/>
+                                                <constraint firstItem="cAM-l0-CDu" firstAttribute="leading" secondItem="cTL-4X-Zvd" secondAttribute="leading" constant="20" id="RZn-zb-j15"/>
+                                                <constraint firstItem="6Uf-L2-PX6" firstAttribute="leading" secondItem="cTL-4X-Zvd" secondAttribute="leading" constant="20" id="ato-Zg-HdU"/>
+                                                <constraint firstAttribute="bottom" secondItem="6Uf-L2-PX6" secondAttribute="bottom" constant="12" id="g1F-sG-tC6"/>
+                                                <constraint firstItem="cAM-l0-CDu" firstAttribute="top" secondItem="cTL-4X-Zvd" secondAttribute="top" constant="10" id="mcn-6B-3TN"/>
+                                                <constraint firstItem="dfx-PH-WWp" firstAttribute="leading" secondItem="6Uf-L2-PX6" secondAttribute="trailing" constant="8" id="sfK-ho-ggG"/>
+                                                <constraint firstAttribute="trailing" secondItem="pwu-01-cxf" secondAttribute="trailing" constant="20" id="vwI-JI-mq9"/>
+                                                <constraint firstAttribute="bottom" secondItem="dfx-PH-WWp" secondAttribute="bottom" constant="20" id="wku-gX-wwQ"/>
+                                                <constraint firstItem="wnv-F5-oRX" firstAttribute="top" secondItem="cTL-4X-Zvd" secondAttribute="top" constant="10" id="xpG-eR-eSZ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="level" destination="wnv-F5-oRX" id="vpb-a2-LIr"/>
                                             <outlet property="levelUpButton" destination="pwu-01-cxf" id="ODT-ox-AOv"/>
+                                            <outlet property="lowerLevel" destination="6Uf-L2-PX6" id="wGu-EV-Ylh"/>
                                             <outlet property="progressView" destination="dfx-PH-WWp" id="fjd-ER-wg7"/>
                                             <outlet property="title" destination="cAM-l0-CDu" id="RmP-bc-MDa"/>
+                                            <outlet property="upperLevel" destination="XLL-4M-PNF" id="4iv-Da-5L3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

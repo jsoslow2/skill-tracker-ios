@@ -112,7 +112,11 @@ extension HomePageViewController: UITableViewDataSource, skillCellDelegate {
         
         cell.title.text = skill.skillName
         cell.level.text = String(Int(skill.currentLevel)) + "/100"
-        cell.progressView.progress = Float(cell.currentLevel! / 100.0)
+        let upperLevel = floor(cell.currentLevel!) + 1
+        let lowerLevel = floor(cell.currentLevel!)
+        cell.upperLevel.text = String(Int(upperLevel))
+        cell.lowerLevel.text = String(Int(lowerLevel))
+        cell.progressView.progress = Float(cell.currentLevel! - lowerLevel)
     
         return cell
     }

@@ -25,12 +25,16 @@ class skillCell : UITableViewCell {
     @IBOutlet weak var level: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var levelUpButton: UIButton!
+    @IBOutlet weak var lowerLevel: UILabel!
+    @IBOutlet weak var upperLevel: UILabel!
     
     var delegate: skillCellDelegate?
     
     override func awakeFromNib() {
         Designs.formatLabel(label: title, size: 14, doColor: true)
-        Designs.formatLabel(label: level, size: 10)
+        Designs.formatLabel(label: level, size: 12)
+        Designs.formatLabel(label: lowerLevel, size: 8)
+        Designs.formatLabel(label: upperLevel, size: 8)
         
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 4)
         progressView.progressTintColor = Designs.blue4

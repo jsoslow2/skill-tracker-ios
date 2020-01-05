@@ -38,7 +38,7 @@ class HomePageViewController: UIViewController {
         tableView.delegate = self as? UITableViewDelegate
         tableView.dataSource = self as? UITableViewDataSource
         
-        SkillService.getAllSkills(uid: CurrentUserData.uid!) { (allSkills) in
+        SkillService.getAllSkills(uid: CurrentUserData.uid) { (allSkills) in
             self.skills = allSkills
             CurrentUserData.allSkills = allSkills
             self.tableView.reloadData()
@@ -68,7 +68,7 @@ class HomePageViewController: UIViewController {
     @IBAction func newSkill(_ sender: Any) {    }
     @IBAction func unwindToHome(_ sender: UIStoryboardSegue) {
         DispatchQueue.main.async {
-            SkillService.getAllSkills(uid: CurrentUserData.uid!) { (allSkills) in
+            SkillService.getAllSkills(uid: CurrentUserData.uid) { (allSkills) in
                 self.skills = allSkills
                 CurrentUserData.allSkills = allSkills
                 self.tableView.reloadData()
@@ -131,7 +131,7 @@ extension HomePageViewController: UITableViewDataSource, skillCellDelegate {
     
     func levelUp(on cell: skillCell) {
         let originalLevel = Double(round(cell.currentLevel! * 100) / 100)
-        SkillService.levelUpSkill(uid: CurrentUserData.uid!, skillName: cell.skillName!, currentLevel: cell.currentLevel!, growthRate: cell.growthRate!) { (newLevel) in
+        SkillService.levelUpSkill(uid: CurrentUserData.uid, skillName: cell.skillName!, currentLevel: cell.currentLevel!, growthRate: cell.growthRate!) { (newLevel) in
             
             CurrentUserData.allSkills![cell.indexNumber!].currentLevel = newLevel
             self.skills = CurrentUserData.allSkills

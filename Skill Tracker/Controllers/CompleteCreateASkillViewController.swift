@@ -37,21 +37,11 @@ class CompleteCreateASkillViewController : UIViewController {
         skillLevel.text = "Level " + String(Int(skillSliderView.value))
         skillLevel.font = UIFont(name: "Menlo", size: 15.0)
         
-        growthRateTitle.font = UIFont(name: "Menlo-Bold", size: 25.0)
-        growthRateTitle.text = "Growth Rate"
-        
-        growthRateSubtitle.font = UIFont(name: "Menlo", size: 15.0)
-        growthRateSubtitle.text = "1% Growth is the best. However, you can change it if you like."
-        growthRateSubtitle.textColor = .systemGray
-        
-        growthRate.text = "1%"
-        growthRate.font = UIFont(name: "Menlo", size: 15.0)
-        
         completeButton.backgroundColor = Designs.mainColor
         completeButton.layer.cornerRadius = 10
         completeButton.addShadowView()
         completeButton.setTitleColor(.white, for: .normal)
-        
+        completeButton.setTitle("Create Skill", for: .normal)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,15 +50,13 @@ class CompleteCreateASkillViewController : UIViewController {
     @IBAction func skillSliderChange(_ sender: Any) {
         skillLevel.text = "Level " + String(Int(skillSliderView.value))
     }
-    @IBAction func growthSliderChange(_ sender: Any) {
-        growthRate.text = String(Int(growthSlider.value)) + "%"
-    }
+
     
     @IBAction func completeCreateASkill(_ sender: Any) {
         
         
         //Create Skill in server
-        SkillService.createSkill(uid: CurrentUserData.uid!, skillName: passedSkillName!, currentLevel: Int(skillSliderView.value), growthRate: Double(round(growthSlider.value) / 100))
+        SkillService.createSkill(uid: CurrentUserData.uid, skillName: passedSkillName!, currentLevel: Int(skillSliderView.value), growthRate: 0.01)
         
     }
 }

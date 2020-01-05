@@ -48,7 +48,11 @@ struct SkillService {
     }
     
     static func getAllSkills(uid: String, completion: @escaping([Skill]) -> Void) {
-        let ref = Database.database().reference().child("Users").child(uid).child("Skills")
+        var userID = uid
+        if userID == "" {
+            userID = Auth.auth().currentUser!.uid
+        }
+        let ref = Database.database().reference().child("Users").child(userID).child("Skills")
         
         ref.observeSingleEvent(of: .value) { (snapshot) in
             

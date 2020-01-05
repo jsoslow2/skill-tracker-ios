@@ -15,7 +15,7 @@ struct CurrentUserData {
     static var firstName : String?
     static var lastName : String?
     static var profilePic : String?
-    static var uid : String?
+    static var uid : String = ""
     static var miniDate : Double?
     static var allDates : [Date]?
     static var skillsSorted : [String]?

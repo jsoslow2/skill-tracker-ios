@@ -15,20 +15,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEW-Oe-URJ">
-                                <rect key="frame" x="186" y="500" width="47" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEW-Oe-URJ">
+                                <rect key="frame" x="186" y="438" width="47" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="DGL-vD-so3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8QK-8H-NHa" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="168" width="414" height="262"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QK-8H-NHa" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="168" width="414" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="UIf-h0-Wkg"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8QK-8H-NHa" firstAttribute="top" secondItem="EJO-RW-iJd" secondAttribute="top" constant="124" id="IAm-V6-2Rg"/>
+                            <constraint firstItem="8QK-8H-NHa" firstAttribute="leading" secondItem="EJO-RW-iJd" secondAttribute="leading" id="T8q-W0-dLa"/>
+                            <constraint firstItem="pEW-Oe-URJ" firstAttribute="top" secondItem="8QK-8H-NHa" secondAttribute="bottom" constant="20" id="Y4U-t7-Or1"/>
+                            <constraint firstItem="pEW-Oe-URJ" firstAttribute="leading" secondItem="EJO-RW-iJd" secondAttribute="leading" constant="186" id="Yqt-Ec-cEt"/>
+                            <constraint firstItem="EJO-RW-iJd" firstAttribute="trailing" secondItem="8QK-8H-NHa" secondAttribute="trailing" id="eeK-au-Pqt"/>
+                            <constraint firstItem="EJO-RW-iJd" firstAttribute="trailing" secondItem="pEW-Oe-URJ" secondAttribute="trailing" constant="181" id="tsv-xZ-4HL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="EJO-RW-iJd"/>
                     </view>
                     <connections>

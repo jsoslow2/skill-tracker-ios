@@ -50,9 +50,10 @@ struct SkillService {
     
     static func levelDownSkill (uid: String, skillName: String,
                                 newLevel: Double, timestamp: String) {
-        let ref = Database.database().reference().child("Users").child(uid).child("Skills").child(skillName).child("levelUps")
+        let ref = Database.database().reference().child("Users").child(uid).child("Skills").child(skillName)
         
-        ref.child(timestamp).setValue(newLevel)
+        ref.child("currentLevel").setValue(newLevel)
+        ref.child("levelUps").child(timestamp).setValue(newLevel)
     }
     
     static func getAllSkills(uid: String, completion: @escaping([Skill]) -> Void) {

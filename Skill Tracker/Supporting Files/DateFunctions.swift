@@ -23,10 +23,11 @@ struct DateFunctions {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let startDate = Date(timeIntervalSince1970: miniDate)
-        var date = startDate
-        var results : [String] = [dateFormatter.string(from: startDate)]
+        var date = Calendar.current.date(byAdding: .day, value: -1, to: startDate)!
+        var results : [String] = [dateFormatter.string(from: date)]
+        let currentDateLessOne = Calendar.current.date(byAdding: .day, value: -1, to: currentDate as Date)!
         
-        while date <= currentDate as Date {
+        while date <= currentDateLessOne {
             date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             results.append(dateFormatter.string(from: date))
         }

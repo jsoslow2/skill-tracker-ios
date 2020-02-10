@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Charts
 import SCLAlertView
+import Firebase
 
 class HomePageViewController: UIViewController {
     var skills : [Skill]?
@@ -33,6 +34,8 @@ class HomePageViewController: UIViewController {
 
         
         lineChartView.addShadowView()
+        
+        CurrentUserData.uid = Auth.auth().currentUser!.uid
 
         
         tableView.delegate = self as? UITableViewDelegate

@@ -53,6 +53,7 @@
 		292304602394A699000BA663 /* CurrentUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserData.swift; sourceTree = "<group>"; };
 		29230462239605E6000BA663 /* SkillService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillService.swift; sourceTree = "<group>"; };
 		292B432623BAF23500778FCA /* DateFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFunctions.swift; sourceTree = "<group>"; };
+		2955A29923F0BACC005F14CF /* Skill Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Skill Tracker.entitlements"; sourceTree = "<group>"; };
 		298F2163239616B000849D22 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		29A9B21723BD810600E0455F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		29BD9F2723B4191C00107E90 /* skillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skillCell.swift; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		2916B4E2239443F200C75480 /* Skill Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				2955A29923F0BACC005F14CF /* Skill Tracker.entitlements */,
 				2916B5032394815C00C75480 /* Views */,
 				2916B5012394814B00C75480 /* StoryBoards */,
 				2916B5002394814000C75480 /* Services */,
@@ -537,7 +539,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Skill Tracker/Skill Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JHAXB5UV33;
 				INFOPLIST_FILE = "Skill Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,7 +562,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Skill Tracker/Skill Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JHAXB5UV33;
 				INFOPLIST_FILE = "Skill Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

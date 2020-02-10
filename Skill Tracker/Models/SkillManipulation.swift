@@ -13,6 +13,7 @@ import UIKit
 struct SkillManipulation {
     
     static func maxValueByDateBySkill (allLevelUps : [String : [(key: String, value: Any)]]) -> [String : [(date: String, max: Double)]] {
+        
         var completion : [String : [(date: String, max: Double)]] = [:]
         
         for i in allLevelUps {
@@ -41,6 +42,7 @@ struct SkillManipulation {
     }
     
     static func sumByDateBySkill (skillMax: [String : [(date: String, max: Double)]], completion: @escaping ([String : [ChartDataEntry]]) -> Void) {
+        
         var skillMaxCopy = skillMax
         var dictionaryOfDates : [String: Double] = [:]
         var timestamp : [[Double]] = []
@@ -63,10 +65,12 @@ struct SkillManipulation {
             
             timestamp.append(skillTimestamps)
             
-let newData = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill: i.value)
+            let newData = SkillManipulation.addDataForEachDay(skillName: i.key, dateSequence: sequence, skill: i.value)
             skillMaxCopy[i.key] = newData
         }
-        let timestamps = timestamp.reduce([], +)
+        
+        let timestamps = sequence.map({Double(dateFormatter.date(from: $0)!.timeIntervalSince1970)})
+
         
         skillSorts = skillSorts.sorted {$0.1 < $1.1}
         skills = skillSorts.map {$0.0}
@@ -191,7 +195,7 @@ let newData = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill:
             values.append((key, sum))
         }
         
-        values = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill: values)
+        values = SkillManipulation.addDataForEachDay(skillName: "",  dateSequence: sequence, skill: values)
         print(values)
         print("Spooglewatt")
         
@@ -208,20 +212,35 @@ let newData = SkillManipulation.addDataForEachDay(dateSequence: sequence, skill:
     }
     
     
-    static func addDataForEachDay (dateSequence: [String], skill : [(date: String, max: Double)]) -> [(date: String, max: Double)] {
+    static func addDataForEachDay (skillName: String, dateSequence: [String], skill : [(date: String, max: Double)]) -> [(date: String, max: Double)] {
         var prevDate : String = "Boop"
         var results : [(date: String, max: Double)] = []
+        var halfValue : Double = 0
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
         for date in dateSequence {
             var value : Double = 0
             let dateLevel = skill.filter({$0.0 == date})
             if dateLevel.count > 0 {
                 value = dateLevel[0].1
+                halfValue = 0
             } else {
                 let lastValue = results.filter({$0.0 == prevDate})
                 
                 if lastValue.count > 0 {
+                    
                     value = lastValue[0].1
+                    if (halfValue == 0) {
+                        halfValue = value * 0.5
+                    }
+                    value = value - (value - halfValue) * 0.01
+                    
+                    let timestamp = dateFormatter.date(from: date)?.timeIntervalSince1970
+                    let timestampString = timestamp?.description.components(separatedBy: ".").first
+                    
+                    SkillService.levelDownSkill(uid: CurrentUserData.uid, skillName: skillName, newLevel: value, timestamp: timestampString!)
+                    
                 } else {
                     value = 0
                 }

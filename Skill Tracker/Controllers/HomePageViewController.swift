@@ -49,11 +49,10 @@ class HomePageViewController: UIViewController {
             //Create Chart
             CurrentUserData.getLevelUps(skills: allSkills) { (levelUps) in
                 
-                LineChartCreator.doDataProcessingAndCreateChart(lineChartData: self.lineChartData, lineChartView: self.lineChartView)
+                LineChartCreator.doDataProcessingAndCreateChart(lineChartView: self.lineChartView)
+                self.lineChartView.animate(yAxisDuration: 2.0)
             }
         }
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,7 +78,7 @@ class HomePageViewController: UIViewController {
                 
                 CurrentUserData.getLevelUps(skills: allSkills) { (levelUps) in
                     
-                        LineChartCreator.doDataProcessingAndCreateChart(lineChartData: self.lineChartData, lineChartView: self.lineChartView)
+                        LineChartCreator.doDataProcessingAndCreateChart(lineChartView: self.lineChartView)
                 
             }
         }
@@ -149,6 +148,12 @@ extension HomePageViewController: UITableViewDataSource, skillCellDelegate {
             let subtitleText = "You've gone from Level " + String(originalLevel) + " to Level " + String(newLevel)
             
             SCLAlertView().showTitle("Level Up!", subTitle: subtitleText, timeout:.none, completeText: nil, style: .success, colorStyle: 723320959, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .rightToLeft)
+            
+            CurrentUserData.getLevelUps(skills: CurrentUserData.allSkills!) { (levelUps) in
+                    
+                        LineChartCreator.doDataProcessingAndCreateChart(lineChartView: self.lineChartView)
+                
+            }
         }
         print("Leveled Up!")
     }

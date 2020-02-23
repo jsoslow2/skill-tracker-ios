@@ -60,8 +60,13 @@ struct SkillManipulation {
             let date = values.map({dateFormatter.date(from: $0.0)})
             var skillTimestamps = date.map({Double($0!.timeIntervalSince1970)})
             
+            let greaterThan0 = values.filter({$0.1 > 0})
+            let dates0 = greaterThan0.map({dateFormatter.date(from: $0.0)})
+            var skillTimestamps0 = dates0.map({Double($0!.timeIntervalSince1970)})
+            
             skillTimestamps.sort()
-            skillSorts.append((i.key, skillTimestamps[0]))
+            skillTimestamps0.sort()
+            skillSorts.append((i.key, skillTimestamps0[0]))
             
             timestamp.append(skillTimestamps)
             
@@ -71,8 +76,13 @@ struct SkillManipulation {
         
         let timestamps = sequence.map({Double(dateFormatter.date(from: $0)!.timeIntervalSince1970)})
 
-        
-        skillSorts = skillSorts.sorted {$0.1 < $1.1}
+        skillSorts = skillSorts.sorted {
+            if ($0.1 != $1.1) {
+                return ($0.1 < $1.1)
+            } else {
+                return ($0.0 < $1.0)
+            }
+        }
         skills = skillSorts.map {$0.0}
         CurrentUserData.skillsSorted = skills
         CurrentUserData.skillsSorted!.append("Total Level")

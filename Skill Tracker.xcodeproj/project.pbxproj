@@ -541,6 +541,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Skill Tracker/Skill Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = JHAXB5UV33;
 				INFOPLIST_FILE = "Skill Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -564,6 +565,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Skill Tracker/Skill Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = JHAXB5UV33;
 				INFOPLIST_FILE = "Skill Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

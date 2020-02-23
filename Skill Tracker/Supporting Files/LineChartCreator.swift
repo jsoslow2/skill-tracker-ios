@@ -37,7 +37,8 @@ struct LineChartCreator {
         
     }
     
-    static func doDataProcessingAndCreateChart (lineChartData : LineChartData, lineChartView: LineChartView ) {
+    static func doDataProcessingAndCreateChart (lineChartView: LineChartView ) {
+        let lineChartData = LineChartData()
         let skillmanip = SkillManipulation.maxValueByDateBySkill(allLevelUps: CurrentUserData.allLevelUps)
         
         SkillManipulation.sumByDateBySkill(skillMax: skillmanip) { (allSkillCharts) in
@@ -82,7 +83,6 @@ struct LineChartCreator {
         }
         
         LineChartCreator.createChart(lineChartView: lineChartView, data: lineChartData, miniDate: CurrentUserData.miniDate!)
-        
-        lineChartView.animate(yAxisDuration: 2.0)
+        lineChartView.leftAxis.axisMinimum = 0
     }
 }
